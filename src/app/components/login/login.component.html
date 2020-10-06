@@ -1,0 +1,27 @@
+<h1 fxLayout="row"
+    fxLayoutAlign="center center">Bem Vindo!</h1>
+<div fxLayout="row"
+     fxLayoutAlign="center center"
+     [formGroup]="loginForm"
+     id="loginFormContainer">
+  <div fxLayout="column"
+       fxLayoutAlign="center stretch">
+    <mat-form-field fxFill>
+      <input matInput
+             type="text"
+             placeholder="E-mail"
+             formControlName="login">
+    </mat-form-field>
+    <mat-form-field fxFill>
+      <input matInput
+             type="password"
+             placeholder="Password"
+             formControlName="password">
+    </mat-form-field>
+    <button mat-flat-button
+            color="accent"
+            fxFill
+            [disabled]="!loginForm.valid"
+            (click)="submit()">Login</button>
+  </div>
+</div>

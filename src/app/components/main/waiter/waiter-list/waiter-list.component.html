@@ -1,0 +1,82 @@
+<div id="waiterListContainer"
+     fxLayout="column"
+     fxLayoutAlign="start stretch"
+     fxFlex>
+  <button mat-fab
+          color="primary"
+          class="fab-button"
+          (click)="addWaiter();">
+    <mat-icon>add</mat-icon>
+  </button>
+  <mat-form-field fxFlex>
+    <mat-label>Filter Waiters</mat-label>
+    <input matInput
+          (keyup)="applyFilter($event)"
+          placeholder="Ex. John"
+          #input>
+  </mat-form-field>
+  <table mat-table
+         [dataSource]="waiters"
+         matSort
+         fxFlex>
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell
+          *matHeaderCellDef
+          mat-sort-header> ID </th>
+      <td mat-cell
+          *matCellDef="let waiter"> {{ waiter.id }} </td>
+    </ng-container>
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell
+          *matHeaderCellDef
+          mat-sort-header> Name </th>
+      <td mat-cell
+          *matCellDef="let waiter"> {{ waiter.name }} </td>
+    </ng-container>
+    <!-- Shift -->
+    <ng-container matColumnDef="shift">
+      <th mat-header-cell
+          *matHeaderCellDef
+          mat-sort-header> Shift </th>
+      <td mat-cell
+          *matCellDef="let waiter">
+        <span>{{ waiter.shift }} | </span>
+        <span>{{ waiter.startTime }} - {{ waiter.endTime }}</span>
+      </td>
+    </ng-container>
+    <!-- Name Column -->
+    <ng-container matColumnDef="status">
+      <th mat-header-cell
+          *matHeaderCellDef
+          mat-sort-header> Status </th>
+      <td mat-cell
+          *matCellDef="let waiter"> {{ waiter.status }} </td>
+    </ng-container>
+    <!-- Phone -->
+    <ng-container matColumnDef="phone">
+      <th mat-header-cell
+          *matHeaderCellDef
+          mat-sort-header> Phone </th>
+      <td mat-cell
+          *matCellDef="let waiter"> {{ waiter.phone }} </td>
+    </ng-container>
+    <!-- Actions -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell
+          *matHeaderCellDef
+          mat-sort-header> Actions </th>
+      <td mat-cell
+          *matCellDef="let waiter">
+        <button mat-icon-button
+                (click)="editWaiter(waiter);">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="columns"></tr>
+    <tr mat-row *matRowDef="let row; columns: columns;"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>

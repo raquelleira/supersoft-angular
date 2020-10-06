@@ -1,0 +1,30 @@
+<div id="ingredientFormContainer"
+     fxLayout="column">
+  <h1>{{ ingredient?.id ? 'Edit' : 'Add' }} Ingredient</h1>
+  <div fxLayout="row"
+       fxLayoutAlign="start center"
+       fxFlex
+       [formGroup]="ingredientForm">
+  <div fxLayout="column"
+       fxLayoutAlign="start start"
+       fxFlex="60">
+    <mat-form-field fxFill>
+      <input matInput
+             type="text"
+             placeholder="Name"
+             formControlName="name">
+    </mat-form-field>
+    <div fxLayout="row"
+         fxLayoutAlign="start start">
+      <button mat-button
+              (click)="cancel()">
+              Cancel</button>
+      <button mat-flat-button
+              color="accent"
+              fxFill
+              [disabled]="!ingredientForm.valid"
+              (click)="submit()">Save</button>
+    </div>
+  </div>
+</div>
+
