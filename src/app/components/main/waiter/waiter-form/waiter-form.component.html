@@ -5,55 +5,59 @@
        fxLayoutAlign="start center"
        fxFlex
        [formGroup]="waiterForm">
-  <div fxLayout="column"
-       fxLayoutAlign="start start"
-       fxFlex="60">
-    <mat-form-field fxFill>
-      <input matInput
-             type="text"
-             placeholder="Name"
-             formControlName="name">
-    </mat-form-field>
-    <mat-form-field fxFill>
-      <input matInput
-             type="text"
-             placeholder="Start Time"
-             formControlName="startTime">
-    </mat-form-field>
-    <mat-form-field fxFill>
-      <input matInput
-             type="text"
-             placeholder="End Time"
-             formControlName="endTime">
-    </mat-form-field>
-    <mat-form-field fxFill>
-      <input matInput
-             type="text"
-             placeholder="Phone"
-             formControlName="phone">
-    </mat-form-field>
-    <mat-form-field fxFill>
-      <input matInput
-             type="text"
-             placeholder="Status"
-             formControlName="status">
-    </mat-form-field>
-    <mat-form-field fxFill>
-      <input matInput
-             type="text"
-             placeholder="Shift"
-             formControlName="shift">
-    </mat-form-field>
-    <div fxLayout="row"
-         fxLayoutAlign="start start">
-      <button mat-button
-              (click)="cancel()">
-              Cancel</button>
-      <button mat-flat-button
-              color="accent"
-              fxFill
-              [disabled]="!waiterForm.valid"
-              (click)="submit()">Save</button>
+    <div fxLayout="column"
+         fxLayoutAlign="start start"
+         fxFlex="60">
+      <mat-form-field fxFill>
+        <input matInput
+              type="text"
+              placeholder="Name"
+              formControlName="name">
+      </mat-form-field>
+      <div fxLayout="row"
+           fxLayoutAlign="start center"
+           fxFill>
+        <mat-form-field fxFlex="50">
+          <input matInput
+                type="text"
+                placeholder="Start Time"
+                formControlName="startTime">
+        </mat-form-field>
+        <mat-form-field fxFlex="50">
+          <input matInput
+                type="text"
+                placeholder="End Time"
+                formControlName="endTime">
+        </mat-form-field>
+      </div>
+      <mat-form-field fxFill>
+        <input matInput
+              type="text"
+              placeholder="Phone"
+              formControlName="phone">
+      </mat-form-field>
+      <mat-form-field fxFill>
+        <input matInput
+              type="text"
+              placeholder="Status"
+              formControlName="status">
+      </mat-form-field>
+      <mat-form-field fxFill>
+        <input matInput
+              type="text"
+              placeholder="Shift"
+              formControlName="shift">
+      </mat-form-field>
+      <div fxLayout="row"
+          fxLayoutAlign="start start">
+        <button mat-button
+                (click)="cancel()">
+                Cancel</button>
+        <button mat-flat-button
+                color="accent"
+                fxFill
+                [disabled]="!waiterForm.valid"
+                (click)="submit()">Save</button>
     </div>
   </div>
 </div>
