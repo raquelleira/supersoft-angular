@@ -5,7 +5,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 
 import { MenuComponent } from './menu.component';
-
+import { AppTranslateModuleFactory } from '../../../core/modules/translate/translate.factory';
+import { MODULE_NAME } from '../../../core/modules/translate/translate.token';
 
 @NgModule({
     declarations: [MenuComponent],
@@ -13,10 +14,14 @@ import { MenuComponent } from './menu.component';
         CommonModule,
         MatListModule,
         MatIconModule,
-        RouterModule
+        RouterModule,
+        AppTranslateModuleFactory()
     ],
     exports: [
         MenuComponent
+    ],
+    providers: [
+        { provide: MODULE_NAME, useValue: 'MENU' }
     ]
 })
 export class MenuModule { }

@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+import { TranslateService } from '@ngx-translate/core';
+
 import { LoginService } from './login.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { LanguageService } from '../../core/services/language/language.service';
+
 
 @Component({
   selector: 'app-login',
@@ -16,8 +21,16 @@ export class LoginComponent implements OnInit {
         private formBuilder: FormBuilder,
         private loginService: LoginService,
         private router: Router,
-        private route: ActivatedRoute
-    ) { }
+        private route: ActivatedRoute,
+        private languageService: LanguageService,
+        translateService: TranslateService
+    ) {
+        translateService.setTranslation(
+            this.languageService.LANGUAGE_PREFERENCES,
+            this.languageService.getTranslationFile('login'),
+            true
+        );
+    }
 
     /**
      * Init component view

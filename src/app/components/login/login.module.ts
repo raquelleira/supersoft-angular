@@ -9,6 +9,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login.component';
 import { LoginRoutingModule } from './login.routing';
 import { LoginService } from './login.service';
+import { AppTranslateModuleFactory } from '../../core/modules/translate/translate.factory';
+import { MODULE_NAME } from '../../core/modules/translate/translate.token';
 
 
 @NgModule({
@@ -20,10 +22,12 @@ import { LoginService } from './login.service';
         ReactiveFormsModule,
         MatFormFieldModule,
         MatInputModule,
-        MatButtonModule
+        MatButtonModule,
+        AppTranslateModuleFactory()
     ],
     providers: [
-        LoginService
+        LoginService,
+        { provide: MODULE_NAME, useValue: 'LOGIN' }
     ]
 })
 export class LoginModule { }

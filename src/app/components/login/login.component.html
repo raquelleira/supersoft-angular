@@ -1,5 +1,5 @@
 <h1 fxLayout="row"
-    fxLayoutAlign="center center">Bem Vindo!</h1>
+    fxLayoutAlign="center center">{{ 'WELCOME_E' | translate }}</h1>
 <div fxLayout="row"
      fxLayoutAlign="center center"
      [formGroup]="loginForm"
@@ -9,19 +9,19 @@
     <mat-form-field fxFill>
       <input matInput
              type="text"
-             placeholder="E-mail"
+             placeholder="{{ 'EMAIL' | translate }}"
              formControlName="login">
     </mat-form-field>
     <mat-form-field fxFill>
       <input matInput
              type="password"
-             placeholder="Password"
+             placeholder="{{ 'PASSWORD' | translate }}"
              formControlName="password">
     </mat-form-field>
     <button mat-flat-button
             color="accent"
             fxFill
             [disabled]="!loginForm.valid"
-            (click)="submit()">Login</button>
+            (click)="submit()">{{ 'LOGIN' | translate }}</button>
   </div>
 </div>

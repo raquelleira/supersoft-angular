@@ -1,3 +1,8 @@
 <div id="homeContainer">
-  <h1>Welcome {{ user?.name }}</h1>
+  <h1>{{ 'WELCOME' | translate }} {{ user?.name }}</h1>
 </div>
+<button mat-button
+        color="primary"
+        (click)="updateLanguage()">
+  {{ 'UPDATE_LANGUAGE_TO' | translate }} {{ language === 'en' ? 'Portuguese' : 'Inglês' }}
+</button>
